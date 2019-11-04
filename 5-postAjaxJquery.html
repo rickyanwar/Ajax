@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Request Ajax Jquery</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal darken-1">
+            <a href="#" class="brand-logo right">Post With Ajax Jquery</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="1-AjaxRequest.html">Ajax Request</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+            <div class="row center">
+                <div class="col s12 m6 offset-m3">
+                    <div class="card-panel z-depth-5">
+                        <h4 class="center"> Ajax Post</h4>
+                        <div class="row">
+                            <form class="col s12 m12" onsubmit="return sendData()">
+                                <div class="row">
+                                    <div class="input-field col s12 m12">
+                                        <input id="title" type="text" >
+                                        <label for="title">title</label>
+                                    </div>
+                                    <div class="input-field col s12 m12">
+                                        <input id="body" type="text" >
+                                        <label for="body">Body</label>
+                                    </div>
+                                </div>
+                                <input class="btn waves-effect waves-light center" type="submit" value="Kirim"> 
+                            </form>
+                        </div>
+                        <!--row-->
+                   
+                    </div>
+                    <!--card-->
+                </div>
+                <!--col-->
+            </div>
+        </div>
+
+    <script>
+        var url = "https://jsonplaceholder.typicode.com/posts";
+        var data ={
+            title : $("#title").value,
+            body  : $("body").value,
+            userId :1
+        }
+        
+        $.post(url,data,function(data,status){
+
+        });
+
+        
+
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Request Ajax Jquery</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper teal darken-1">
+            <a href="#" class="brand-logo right">Fetch Jquery</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="1-AjaxRequest.html">Ajax Request</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+ 
+    <button class="btn waves-effect waves-light center" type="submit" onclick="loadContent()">Load Content</button>
+    <div id="hasil">    </div>
+    <script>
+        function loadContent(){
+            var url = "https://jsonplaceholder.typicode.com/posts/";
+            fetch(url).then(response => response.json())
+                .then(function(data){
+                    var template = data.map(post=>{
+                        return `
+                        <h3>${post.title}</h3>
+                        <p>${post.body}</p>
+                        <hr>
+                        `;
+                    });
+                    document.getElementById("hasil").innerHTML = template.join('<br>');
+
+                }).catch(function(e){
+                    alert("Gagal mengambil data");
+                });
+        }
+
+    </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+
+</html>
